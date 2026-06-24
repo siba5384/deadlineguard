@@ -1,0 +1,29 @@
+# React / Node
+deadlineguard-ui/node_modules/
+deadlineguard-ui/dist/
+deadlineguard-ui/.env
+deadlineguard-ui/.env.*
+deadlineguard-ui/.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Spring Boot / Java
+deadlineguard-api/target/
+deadlineguard-api/*.jar
+deadlineguard-api/*.war
+deadlineguard-api/*.ear
+deadlineguard-api/.mvn/
+deadlineguard-api/mvnw
+deadlineguard-api/mvnw.cmd
+deadlineguard-api/.idea/
+deadlineguard-api/.vscode/
+deadlineguard-api/*.iml
+deadlineguard-api/.settings/
+deadlineguard-api/.classpath
+deadlineguard-api/.project
+
+# General
+.DS_Store
+.idea/
+.vscode/
