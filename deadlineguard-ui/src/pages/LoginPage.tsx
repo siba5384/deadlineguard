@@ -1,6 +1,6 @@
 import { Github, Shield, Zap, CheckCircle2, Clock } from 'lucide-react'
 import { useState } from 'react'
-import { loginWithPassword, registerUser } from '../api/client'
+import { loginWithPassword, registerUser, api } from '../api/client'
 import axios from 'axios'
 
 const features = [
@@ -151,7 +151,7 @@ export default function LoginPage({ error }: { error?: boolean }) {
 
           <button
             id="github-login-btn"
-            onClick={() => window.location.href = 'http://localhost:8080/oauth2/authorization/github'}
+            onClick={() => window.location.href = `${api.defaults.baseURL?.replace('/api', '') || ''}/oauth2/authorization/github`}
             className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-lg font-medium text-sm transition-all duration-200 mb-3"
             style={{ background: '#24292e', color: '#fff', border: '1px solid #444' }}
             onMouseEnter={e => (e.currentTarget.style.background = '#2f363d')}
@@ -163,7 +163,7 @@ export default function LoginPage({ error }: { error?: boolean }) {
 
           <button
             id="google-login-btn"
-            onClick={() => window.location.href = 'http://localhost:8080/oauth2/authorization/google'}
+            onClick={() => window.location.href = `${api.defaults.baseURL?.replace('/api', '') || ''}/oauth2/authorization/google`}
             className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-lg font-medium text-sm transition-all duration-200"
             style={{ background: '#fff', color: '#444', border: '1px solid #ddd' }}
             onMouseEnter={e => (e.currentTarget.style.background = '#f5f5f5')}
@@ -184,7 +184,7 @@ export default function LoginPage({ error }: { error?: boolean }) {
             type="button"
             onClick={async () => {
               try {
-                await axios.post('http://localhost:8080/api/auth/demo', {}, { withCredentials: true })
+                await api.post('/auth/demo')
                 window.location.href = '/'
               } catch (e) {
                 alert('Demo login failed. Make sure backend is running.')
