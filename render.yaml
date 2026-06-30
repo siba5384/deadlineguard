@@ -30,7 +30,6 @@ services:
   - type: web
     name: deadlineguard-ui
     env: static
-    plan: free
     buildCommand: cd deadlineguard-ui && npm install && npm run build
     staticPublishPath: ./deadlineguard-ui/dist
     envVars:
