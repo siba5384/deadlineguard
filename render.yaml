@@ -10,10 +10,18 @@ services:
     dockerContext: ./deadlineguard-api
     dockerfilePath: ./deadlineguard-api/Dockerfile
     envVars:
-      - key: DATABASE_URL
+      - key: DB_HOST
         fromDatabase:
           name: deadlineguard-db
-          property: connectionString
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: deadlineguard-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: deadlineguard-db
+          property: database
       - key: DATABASE_USER
         fromDatabase:
           name: deadlineguard-db
